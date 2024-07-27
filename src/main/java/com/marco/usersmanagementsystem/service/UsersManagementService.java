@@ -113,7 +113,7 @@ public class UsersManagementService {
                 reqRes.setMessage("Successful");
             } else {
                 reqRes.setStatusCode(404);
-                reqRes.setMessage("No users found");
+                reqRes.setMessage("Usuario no encontrado");
             }
             return reqRes;
         } catch (Exception e) {
