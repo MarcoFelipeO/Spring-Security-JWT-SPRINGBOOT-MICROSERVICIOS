@@ -110,7 +110,7 @@ public class UsersManagementService {
             if (!result.isEmpty()) {
                 reqRes.setOurUsersList(result);
                 reqRes.setStatusCode(200);
-                reqRes.setMessage("Satisfactorio");
+                reqRes.setMessage("Exitoso");
             } else {
                 reqRes.setStatusCode(404);
                 reqRes.setMessage("Usuario no encontrado");
@@ -146,14 +146,15 @@ public class UsersManagementService {
             if (userOptional.isPresent()) {
                 usersRepo.deleteById(userId);
                 reqRes.setStatusCode(200);
-                reqRes.setMessage("User deleted successfully");
+                reqRes.setMessage("Usuario eliminado Exitosamente");
             } else {
                 reqRes.setStatusCode(404);
-                reqRes.setMessage("User not found for deletion");
+                reqRes.setMessage("\n" +
+                        "Usuario no encontrado para eliminar");
             }
         } catch (Exception e) {
             reqRes.setStatusCode(500);
-            reqRes.setMessage("Error occurred while deleting user: " + e.getMessage());
+            reqRes.setMessage("Se produjo un error al eliminar el usuario: " + e.getMessage());
         }
         return reqRes;
     }
@@ -178,14 +179,14 @@ public class UsersManagementService {
                 OurUsers savedUser = usersRepo.save(existingUser);
                 reqRes.setOurUsers(savedUser);
                 reqRes.setStatusCode(200);
-                reqRes.setMessage("User updated successfully");
+                reqRes.setMessage("Usuario actualizado con éxito");
             } else {
                 reqRes.setStatusCode(404);
-                reqRes.setMessage("User not found for update");
+                reqRes.setMessage("Usuario no encontrado para actualización");
             }
         } catch (Exception e) {
             reqRes.setStatusCode(500);
-            reqRes.setMessage("Error occurred while updating user: " + e.getMessage());
+            reqRes.setMessage("Ocurrió un error al actualizar el usuario: " + e.getMessage());
         }
         return reqRes;
     }
@@ -198,15 +199,15 @@ public class UsersManagementService {
             if (userOptional.isPresent()) {
                 reqRes.setOurUsers(userOptional.get());
                 reqRes.setStatusCode(200);
-                reqRes.setMessage("successful");
+                reqRes.setMessage("Exitoso");
             } else {
                 reqRes.setStatusCode(404);
-                reqRes.setMessage("User not found for update");
+                reqRes.setMessage("Usuario no encontrado para actualización");
             }
 
         }catch (Exception e){
             reqRes.setStatusCode(500);
-            reqRes.setMessage("Error occurred while getting user info: " + e.getMessage());
+            reqRes.setMessage("Se produjo un error al obtener información del usuario: " + e.getMessage());
         }
         return reqRes;
 
