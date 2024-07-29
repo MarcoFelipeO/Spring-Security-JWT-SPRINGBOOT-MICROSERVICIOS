@@ -65,7 +65,7 @@ public class UsersManagementService {
             response.setRole(user.getRole());
             response.setRefreshToken(refreshToken);
             response.setExpirationTime("24Hrs");
-            response.setMessage("Successfully Logged In");
+            response.setMessage("Iniciado sesión exitosamente");
 
         }catch (Exception e){
             response.setStatusCode(500);
@@ -89,7 +89,7 @@ public class UsersManagementService {
                 response.setToken(jwt);
                 response.setRefreshToken(refreshTokenReqiest.getToken());
                 response.setExpirationTime("24Hr");
-                response.setMessage("Successfully Refreshed Token");
+                response.setMessage("Token actualizado correctamente");
             }
             response.setStatusCode(200);
             return response;
@@ -130,7 +130,7 @@ public class UsersManagementService {
             OurUsers usersById = usersRepo.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
             reqRes.setOurUsers(usersById);
             reqRes.setStatusCode(200);
-            reqRes.setMessage("Users with id '" + id + "' found successfully");
+            reqRes.setMessage("Usuarios con id '" + id + "' encontrado exitosamente");
         } catch (Exception e) {
             reqRes.setStatusCode(500);
             reqRes.setMessage("Error ocurrido: " + e.getMessage());
